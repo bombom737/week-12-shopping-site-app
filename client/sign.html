@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="signstyle.css">
+    <script defer src="sign.js"></script>
+</head>
+<body onload="disableSubmit(), clearForm()">
+    <div class="container">
+      <div class="whitebackground">
+        <div class="text">
+          <div class="header">
+            <h1 id="sign">Sign Up</h1>
+            <p id="fill">Please fill in this form to create an account!</p>
+          </div>
+        </div>
+        <hr id="line">
+        <form id="registerForm">
+          <div class="input">
+            <div class="name-container">
+              <div class="firstname-input">
+                <input name="firstname" id="firstname" type="text" placeholder="First Name">
+                <p id="firstnameError" class="error-message"></p>
+              </div>
+              <div class="lastname-input">
+                <input name="lastname" id="lastname" type="text" placeholder="Last Name">
+                <p id="lastnameError" class="error-message"></p>
+              </div>
+            </div>
+            <div class="username-input">
+              <input name="username" id="username" type="text" placeholder="Username">
+              <p id="usernameError" class="error-message"></p>
+            </div>
+            <div class="email-input">
+              <input name="email" id="email" type="text" placeholder="Email">
+              <p id="emailError" class="error-message"></p>
+            </div>
+            <div class="password-input">
+              <input name="password" id="password" type="password" placeholder="Password">
+              <p id="passwordError" class="error-message"></p>
+            </div>
+            <div class="passconfirm-input">
+              <input name="passconfirm" id="passconfirm" type="password" placeholder="Confirm Password">
+              <p id="passconfirmError" class="error-message"></p>
+            </div>
+          </div>
+        
+          <hr id="line">
+          <div class="tacobox">
+            <input id="checkbox" type="checkbox" onchange="activateButton(this)">  I accept the <a id="terms" href="https://cdn.discordapp.com/attachments/446008800965820420/1214288362639200266/image.png?ex=65f8912a&is=65e61c2a&hm=faa81229c0169a42c63713c538b46dedb6ac8a5cade9b4e8a0c4bd61b6603661&">Terms of Use</a>  &  <a id="privacy" href="www.ynet.co.il">Privacy Policy</a>.
+            <input id="submit" type="submit" name="submit" value="Sign Up">
+          </div>
+        </form>
+      </div>
+    </div>
+</body>
+</html>

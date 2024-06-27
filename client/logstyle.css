@@ -1,0 +1,154 @@
+html {
+    font-family: "Segoe UI", "Roboto","Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+}
+
+* {
+    padding: 0;
+    margin: auto;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: white;
+    position: relative;
+}
+
+.container {
+    background-color: rgb(33, 37, 41);
+    height: 440px;
+    width: 420px;
+    border-radius: 10px;
+}
+
+.whitebackground {
+    margin-top: 10px;
+    height:420px;
+    width: 400px;
+    background-color: white;
+    border-radius: 5px;
+    overflow: auto;
+}
+
+.text {
+    margin-bottom: 20px;
+}
+
+.header {
+    margin-left: 20px;
+}
+
+#login {
+    color: rgb(30, 30, 30);
+    text-align: center;
+    margin-top: 40px;
+}
+
+.input {
+    height: 200px; /* Increased height to accommodate error messages */
+    width: 400px;
+    padding: 1px 20px;
+    box-sizing: border-box;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+#userheader {
+    color: rgb(30, 30, 30);
+    margin-left: 20px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+#username {
+    height: 30px;
+    width: 320px;
+    padding: 1px 10px;
+    margin-left: 20px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 2px;
+    background-color: rgb(242, 242, 242);
+}
+
+#passheader {
+    color: rgb(30, 30, 30);
+    margin-left: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+#password {
+    height: 30px;
+    width: 320px;
+    padding: 1px 10px;
+    margin-left: 20px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 2px;
+    background-color: rgb(242, 242, 242);
+}
+
+.tacobox {
+    color: rgb(109, 109, 109);
+    margin-left: 40px;
+    width: 320px;
+}
+
+#checkbox {
+    margin-bottom: 15px;
+}
+
+#remember {
+    color: rgb(36, 36, 36);
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+#submit {
+    color: rgb(255, 255, 255);
+    background-color: rgb(33, 37, 41);
+    text-align: center;
+    height: 35px;
+    width: 320px;
+    border: none;
+    border-radius: 2px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+#submit:hover {
+    background-color: rgb(84, 93, 102);
+    cursor: pointer;
+}
+
+#forgot {
+    margin-top: 10px;
+    margin-bottom: 15px;
+    text-align: right;
+    font-size: 10px;
+}
+
+#forlink {
+    text-decoration: none;
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-left: 20px;
+    margin-top: 5px;
+    margin-bottom: 0;
+    height: 16px; /* Fixed height to prevent shifting */
+}
+
+.input-error {
+    border: 2px solid red;
+}

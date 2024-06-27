@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <meta name='viewport' content='width=device-width', initial-scale=1>
+    <link rel='stylesheet' type='text/css' media='screen' href='logstyle.css'>
+</head>
+<body>
+    <div class="container">
+      <div class="whitebackground">
+        <div class="text">
+          <div class="header">
+            <h1 id="login">
+              Log In
+            </h1>
+          </div>
+        </div>
+        <form id="login-form" onsubmit="login(event)">
+          <div class="input">
+            <h4 id="userheader">Username</h4>
+            <input name="username" id="username" type="text" placeholder="Enter username">
+            <p id="usernameError" class="error-message"></p>
+            <h4 id="passheader">Password</h4>
+            <input name="password" id="password" type="password" placeholder="Enter password">
+            <p id="passwordError" class="error-message"></p>
+          </div>
+          <div class="tacobox">
+            <input id="submit" type="submit" name="submit" onclick="login()">
+            <p id="forgot">Don't have an account? <a id="forlink" href="/register">Sign Up</a></p>  
+          </div>
+        </form>  
+      </div>
+    </div>
+    <script src="login.js"></script>
+</body>
+</html>
