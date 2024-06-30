@@ -9,7 +9,7 @@ if (isLoggedIn) {
     
     const logOut = document.getElementById('dropdown-item2');
     logOut.textContent = 'Log Out';
-    logOut.href = "/#"
+    logOut.href = "/"
     logOut.onclick = () => {
         localStorage.removeItem('isLoggedIn');
         localStorage.removeItem('username');
@@ -20,14 +20,13 @@ if (isLoggedIn) {
     };
 }
 
-// Ensure the cart is loaded from local storage when the module is loaded
 const username = localStorage.getItem('username') || 'Guest';
 
 function loadCartFromLocalStorage() {
     const savedCart = localStorage.getItem(`cartOf${username}`);
     if (savedCart) {
-        cart.length = 0; // Clear the cart array
-        JSON.parse(savedCart).forEach(item => cart.push(item)); // Populate the cart array
+        cart.length = 0;
+        JSON.parse(savedCart).forEach(item => cart.push(item));
     }
 }
 
@@ -135,8 +134,6 @@ async function checkout(username) {
 
         const data = await response.json();
         if (response.ok) {
-            const orderId = data.order.orderId; 
-            localStorage.setItem('orderId', orderId); 
             document.getElementById('checkout-btn').disabled = true;
             showOrderConfirmation(data.order);
             resetCart();

@@ -7,7 +7,6 @@ mongoose.connect('mongodb+srv://tootoopaz:21002100TgHy@cluster0.gofgudu.mongodb.
     console.error("Couldn't connect to database", error);
 });
 
-// Define the schemas
 const userSchema = new mongoose.Schema({
     fullName: String,
     username: String,
@@ -27,13 +26,10 @@ const orderSchema = new mongoose.Schema({
     orderContents: [productSchema],
     orderId: Number
 });
-
-// Create the models
 const UserModel = mongoose.model('User', userSchema);
 const ProductModel = mongoose.model('Product', productSchema);
 const OrderModel = mongoose.model('Order', orderSchema);
 
-// Export the models
 module.exports = {
     mongoose,
     UserModel,

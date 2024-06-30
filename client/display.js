@@ -2,14 +2,13 @@ import { products } from './products.js';
 import { cart, saveCartToLocalStorage, removeItemFromCart, updateCart } from './cart.js';
 console.log(cart);
 
-// Ensure the cart is loaded from local storage when the module is loaded
 const username = localStorage.getItem('username') || 'Guest';
 
 function loadCartFromLocalStorage() {
     const savedCart = localStorage.getItem(`cartOf${username}`);
     if (savedCart) {
-        cart.length = 0; // Clear the cart array
-        JSON.parse(savedCart).forEach(item => cart.push(item)); // Populate the cart array
+        cart.length = 0;
+        JSON.parse(savedCart).forEach(item => cart.push(item));
     }
 }
 
@@ -30,7 +29,7 @@ function debounce(callback, delay = 250){
 function findProducts() {
     const input = document.getElementById("searchbar").value;
     const matchingProducts = products.filter(product => product.name.toLowerCase().includes(input.toLowerCase()));
-    displayProducts(matchingProducts, false);
+    displayProducts(matchingProducts);
     if (input === '') {
         resetProducts();
     }
@@ -38,7 +37,7 @@ function findProducts() {
 
 function resetProducts() {
     const initialProducts = products.slice(0, 6);
-    displayProducts(initialProducts, true);
+    displayProducts(initialProducts);
 }
 
 function displayProducts(productsToDisplay) {
@@ -46,6 +45,7 @@ function displayProducts(productsToDisplay) {
     productRow.innerHTML = '';
     let label = '';
     const input = document.getElementById("searchbar").value;
+
     if (input) {
         label = '';
         const resultsHeader = document.createElement('h2');
@@ -53,30 +53,41 @@ function displayProducts(productsToDisplay) {
         productRow.appendChild(resultsHeader);
     }
 
-    productsToDisplay.forEach((product, index) => {
-        if(!input){
-            label = (index === 0) ? 'Most Popular' : (index === 1) ? 'Best Seller':(index === 2) ? 'Top Rated' : (index === 3) ? 'For You' : (index === 4) ? 'Exclusive' : 'On Sale';
-        }
-        const productDiv = document.createElement('div');
-        productDiv.classList.add('col-md-4')        
-        const productContent = `
-            <h2>${label}</h2>
-            <div class="product">
-                <img src="${product.image}">
-                <div class="product-details">
-                    <p class="product-name">${product.name}</p>
-                    <p class="product-price">$${product.price}</p>
-                    <p class="product-description">${product.description}</p>
+    if (!productsToDisplay || productsToDisplay.length === 0) {
+        const noProductsDiv = document.createElement('div');
+        noProductsDiv.classList.add('col-md-4');
+        noProductsDiv.innerHTML = `
+            <div id="empty-cart">
+                <p id="empty-cart-text">No Results</p>
+            </div>`;
+        productRow.appendChild(noProductsDiv);
+    } else {
+        productsToDisplay.forEach((product, index) => {
+            if (!input) {
+                label = (index === 0) ? 'Most Popular' : (index === 1) ? 'Best Seller' : (index === 2) ? 'Top Rated' : (index === 3) ? 'For You' : (index === 4) ? 'Exclusive' : 'On Sale';
+            }
+
+            const productDiv = document.createElement('div');
+            productDiv.classList.add('col-md-4');
+            productDiv.innerHTML = `
+                <h2>${label}</h2>
+                <div class="product">
+                    <img src="${product.image}">
+                    <div class="product-details">
+                        <p class="product-name">${product.name}</p>
+                        <p class="product-price">$${product.price}</p>
+                        <p class="product-description">${product.description}</p>
+                    </div>
                 </div>
-            </div>
-            <p><a class="btn btn-secondary add-to-cart" role="button" data-id="${product.id}">Add to Cart&raquo;</a></p>
-        `;
-        productDiv.innerHTML = productContent;
-        productRow.appendChild(productDiv);
-    });
+                <p><a class="btn btn-secondary add-to-cart" role="button" data-id="${product.id}">Add to Cart&raquo;</a></p>
+            `;
+            productRow.appendChild(productDiv);
+        });
+    }
 
     document.querySelectorAll('.add-to-cart').forEach(button => button.addEventListener('click', addToCart));
 }
+
 
 function addToCart(event) {
     const productId = parseInt(event.target.getAttribute('data-id'));

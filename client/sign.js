@@ -1,4 +1,4 @@
-function clearForm() {
+function ResetForm() {
     document.getElementById("firstname").value = "";
     document.getElementById("lastname").value = "";
     document.getElementById("username").value = "";
@@ -8,9 +8,6 @@ function clearForm() {
 
     const errorMessages = document.querySelectorAll(".error-message");
     errorMessages.forEach(msg => msg.textContent = "");
-}
-
-function disableSubmit() {
     document.getElementById("submit").disabled = true;
 }
 

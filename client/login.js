@@ -1,5 +1,5 @@
 function login(event) {
-    event.preventDefault(); // Prevent form submission
+    event.preventDefault();
 
     let username = document.querySelector("#username").value;
     let password = document.querySelector("#password").value;
@@ -8,7 +8,6 @@ function login(event) {
     let usernameError = document.querySelector("#usernameError");
     let passwordError = document.querySelector("#passwordError");
 
-    // Clear previous error messages and remove error styles
     usernameError.textContent = "";
     passwordError.textContent = "";
     usernameInput.classList.remove("input-error");
@@ -22,16 +21,12 @@ function login(event) {
     .then(response => response.json())
     .then(data => {
         if (data.message === 'Login successful') {
+            //NOT SECURE AT ALL!!! Never do this in a real website!
             localStorage.setItem('firstName', data.user.firstName);
             localStorage.setItem('lastName', data.user.lastName);
             localStorage.setItem('username', username);
-            localStorage.setItem('password', password); // This is generally not recommended for security reasons
+            localStorage.setItem('password', password); 
             localStorage.setItem('isLoggedIn', true);
-
-            // Alternatively, you can use cookies
-            // document.cookie = `username=${username}; path=/`;
-            // document.cookie = `isLoggedIn=true; path=/`;
-
             window.location.href = "/";
         } else {
             if (data.message === 'Username not found') {
