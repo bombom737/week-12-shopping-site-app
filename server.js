@@ -8,19 +8,19 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/client/home.html');
+    res.sendFile(__dirname + '/client/html/home.html');
 });
 
 app.get('/register', (req, res) => {
-    res.sendFile(__dirname + '/client/sign.html');
+    res.sendFile(__dirname + '/client/html/sign.html');
 });
 
 app.get('/login', (req, res) => {
-    res.sendFile(__dirname + '/client/login.html');
+    res.sendFile(__dirname + '/client/html/login.html');
 });
 
 app.get('/checkout', async (req, res) => {
-    res.sendFile(__dirname + '/client/checkout.html');
+    res.sendFile(__dirname + '/client/html/checkout.html');
 });
 
 app.post('/register', async (req, res) => {

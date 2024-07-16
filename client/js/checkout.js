@@ -65,7 +65,7 @@ function displayProducts() {
                     <p class="cart-item-name">${product.name}</p>
                     <p class="cart-item-description">${product.description}</p>
                     <div class="cart-item-quantity">
-                        <a class="quantity:-text">Quantity:</a>
+                        <a class="quantity-text">Quantity:</a>
                         <button class="decrement-quantity" data-id="${product.id}">-</button>
                         <input type="number" class="quantity-input" data-id="${product.id}" value="${product.quantity}">
                         <button class="increment-quantity" data-id="${product.id}">+</button>

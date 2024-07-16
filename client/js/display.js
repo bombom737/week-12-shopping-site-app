@@ -106,7 +106,6 @@ function addToCart(event) {
 function displayCart() {
     const cartContent = document.querySelector('.cart-content');
     cartContent.innerHTML = '';
-    console.log(cart)
 
     if (cart.length === 0) {
         cartContent.innerHTML = `<div id="empty-cart">
