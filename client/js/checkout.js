@@ -43,11 +43,8 @@ function updateTotal(array){
 
 function displayProducts() {
     const cartContent = document.querySelector('.cart-content');
-    cartContent.innerHTML = `<h3>Your Cart</h3>`;
-
     if (cart.length === 0) {
         cartContent.innerHTML = `
-        <h3>Your Cart</h3> 
         <div id="empty-cart">
             <p id="empty-cart-text"><span style="color:red">Your cart is empty.</span> Go back to <a style="text-decoration: none;" href="/"> Home Page</a>.</p>
         </div>`

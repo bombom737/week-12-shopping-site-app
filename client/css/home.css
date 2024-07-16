@@ -263,14 +263,14 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
     background-color: red;
 }
 
-.sidebar-footer {
+.sidebar-bottom {
     display: flex;
     justify-content: space-between;
     padding: 20px;
     background-color: #f1f1f1;
 }
 
-.sidebar-footer button {
+.sidebar-bottom button {
     flex: 1;
     margin: 0 5px;
     padding: 10px 20px;
@@ -281,13 +281,14 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
     border-radius: 2px;
 }
 
-.sidebar-footer button:hover{
+.sidebar-bottom button:hover{
     background-color: #00a1d6;
 }
 
-.sidebar-footer button:disabled {
+.sidebar-bottom button:disabled {
     background-color: #00394d;
     color: gray;
+    cursor: default;
 }
 
 #search {
